@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Salinity and Alkalinity Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="manifest" href="manifest.json" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Oilfield Water Analysis</h1>
+      <form id="calculatorForm">
+        <label for="chloride">Chloride (ppm):</label>
+        <input type="number" id="chloride" required />
+
+        <label for="sulphate">Sulphate (ppm):</label>
+        <input type="number" id="sulphate" required />
+
+        <label for="carbonate">Carbonate (ppm):</label>
+        <input type="number" id="carbonate" required />
+
+        <label for="bicarbonate">Bicarbonate (ppm):</label>
+        <input type="number" id="bicarbonate" required />
+
+        <label for="calcium">Calcium (ppm):</label>
+        <input type="number" id="calcium" required />
+
+        <label for="magnesium">Magnesium (ppm):</label>
+        <input type="number" id="magnesium" required />
+
+        <label for="strontium">Strontium (ppm):</label>
+        <input type="number" id="strontium" required />
+
+        <label for="potassium">Potassium (ppm):</label>
+        <input type="number" id="potassium" required />
+
+        <button type="submit">Calculate</button>
+      </form>
+
+      <div id="result" class="result" style="display: none">
+        <p>
+          <strong>Sodium Calculated (ppm):</strong> <span id="sodium"></span>
+        </p>
+        <p>
+          <strong>Total Dissolved Solids (TDS):</strong> <span id="tds"></span>
+        </p>
+        <p>
+          <strong>Salinity as NaCl:</strong> <span id="salinityAsNaCl"></span>
+        </p>
+        <p><strong>Primary Salinity (PS):</strong> <span id="ps"></span></p>
+        <p><strong>Secondary Salinity (SS):</strong> <span id="ss"></span></p>
+        <p><strong>Primary Alkalinity (PA):</strong> <span id="pa"></span></p>
+        <p><strong>Secondary Alkalinity (SA):</strong> <span id="sa"></span></p>
+        <p><strong>Sulins Genetic Type:</strong> <span id="gentype"></span></p>
+        <p>
+          <strong>Palmer's Classification:</strong>
+          <span id="resultString"></span>
+        </p>
+      </div>
+      <!-- Footer with copyright notice -->
+      <footer>
+        <p>&copy; 2024 Ranjit Singh. All rights reserved.</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- Service Worker Registration -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("./service-worker.js")
+          .then((registration) => {
+            console.log(
+              "Service Worker registered with scope:",
+              registration.scope
+            );
+          })
+          .catch((error) => {
+            console.error("Service Worker registration failed:", error);
+          });
+      }
+    </script>
+  </body>
+</html>
